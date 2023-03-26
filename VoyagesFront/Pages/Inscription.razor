@@ -1,0 +1,258 @@
+﻿@page "/compte/inscription"
+
+<div class="container">
+    <h3>Inscription</h3>
+
+    <EditForm Model="utilisateur">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group">
+            <label for="Nom">Nom</label>
+            <InputText id="Nom" class="form-control" @bind-Value="@utilisateur.Nom" />
+        </div>
+        <div class="form-group">
+            <label for="Prénom">Prénom</label>
+            <InputText id="Prénom" class="form-control" @bind-Value="@utilisateur.Prénom" />
+        </div>
+        <div class="form-group">
+            <label for="Pays">Pays</label>
+            <InputSelect id="Pays" class="form-control" TValue="string" @bind-Value="@utilisateur.Pays">
+                @foreach (var pays in Pays)
+                {
+                    <option>@pays</option>
+                }
+            </InputSelect>
+        </div>
+        <div class="form-group">
+            <label for="Naissance">Date de naissance</label>
+            <InputDate id="Naissance" class="form-control" @bind-Value="@utilisateur.DateDeNaissance" />
+        </div>
+        <div class="form-group">
+            <label for="Login">Login</label>
+            <InputText id="Login" class="form-control" @bind-Value="@utilisateur.Login" />
+        </div>
+        <div class="form-group">
+            <label for="MotDePasse">Mot de passe</label>
+            <InputText id="MotDePasse" type="password" class="form-control" @bind-Value="@utilisateur.MotDePasse" />
+        </div>
+        <div class="form-group">
+            <label for="MotDePasse2">Confirmation du mot de passe</label>
+            <InputText id="MotDePasse2" type="password" class="form-control" @bind-Value="@utilisateur.ConfirmationMotDePasse" />
+        </div>
+        <div class="form-check">
+            <InputCheckbox id="LettreDInformation" class="form-check-input" @bind-Value="@utilisateur.LettreDInformation" />
+            <label form="LettreDInformation" class="form-check-label" for="exampleCheck1">Recevoir la lettre d'information</label>
+        </div>
+        <button type="submit" class="btn btn-primary">S'inscrire</button>
+    </EditForm>
+</div>
+@code {
+    private Utilisateur utilisateur = new Utilisateur() {
+        Nom = "", 
+        Prénom = "", 
+        Login = "", 
+        MotDePasse = "", 
+        ConfirmationMotDePasse = "", 
+        Email = ""
+    };
+
+    private readonly string[] Pays = {
+        "Afghanistan",
+        "Afrique du Sud",
+        "Albanie",
+        "Algérie",
+        "Allemagne",
+        "Andorre",
+        "Angola",
+        "Antigua-et-Barbuda",
+        "Arabie saoudite",
+        "Argentine",
+        "Arménie",
+        "Australie",
+        "Autriche",
+        "Azerbaïdjan",
+        "Bahamas",
+        "Bahreïn",
+        "Bangladesh",
+        "Barbade",
+        "Belgique",
+        "Bélize",
+        "Bénin",
+        "Bhoutan",
+        "Biélorussie",
+        "Birmanie",
+        "Bolivie",
+        "Bosnie-Herzégovine",
+        "Botswana",
+        "Brésil",
+        "Brunei",
+        "Bulgarie",
+        "Burkina",
+        "Burundi",
+        "Cambodge",
+        "Cameroun",
+        "Canada",
+        "Cap-Vert",
+        "Centrafrique",
+        "Chili",
+        "Chine",
+        "Chypre",
+        "Colombie",
+        "Comores",
+        "Congo",
+        "République démocratique du Congo",
+        "Îles Cook",
+        "Corée du Nord",
+        "Corée du Sud",
+        "Costa Rica",
+        "Côte d'Ivoire",
+        "Croatie",
+        "Cuba",
+        "Danemark",
+        "Djibouti",
+        "République dominicaine",
+        "Dominique",
+        "Égypte",
+        "Émirats arabes unis",
+        "Équateur",
+        "Érythrée",
+        "Espagne",
+        "Estonie",
+        "Eswatini",
+        "États-Unis",
+        "Éthiopie",
+        "Fidji",
+        "Finlande",
+        "France",
+        "Gabon",
+        "Gambie",
+        "Géorgie",
+        "Ghana",
+        "Grèce",
+        "Grenade",
+        "Guatémala",
+        "Guinée",
+        "Guinée équatoriale",
+        "Guinée-Bissao",
+        "Guyana",
+        "Haïti",
+        "Honduras",
+        "Hongrie",
+        "Inde",
+        "Indonésie",
+        "Irak",
+        "Iran",
+        "Irlande",
+        "Islande",
+        "Israël",
+        "Italie",
+        "Jamaïque",
+        "Japon",
+        "Jordanie",
+        "Kazakhstan",
+        "Kénya",
+        "Kirghizstan",
+        "Kiribati",
+        "Kosovo",
+        "Koweït",
+        "Laos",
+        "Lésotho",
+        "Lettonie",
+        "Liban",
+        "Libéria",
+        "Libye",
+        "Liechtenstein",
+        "Lituanie",
+        "Luxembourg",
+        "Macédoine du Nord",
+        "Madagascar",
+        "Malaisie",
+        "Malawi",
+        "Maldives",
+        "Mali",
+        "Malte",
+        "Maroc",
+        "Îles Marshall",
+        "Maurice",
+        "Mauritanie",
+        "Mexique",
+        "Micronésie",
+        "Moldavie",
+        "Monaco",
+        "Mongolie",
+        "Monténégro",
+        "Mozambique",
+        "Namibie",
+        "Nauru",
+        "Népal",
+        "Nicaragua",
+        "Niger",
+        "Nigéria",
+        "Niue",
+        "Norvège",
+        "Nouvelle-Zélande",
+        "Oman",
+        "Ouganda",
+        "Ouzbékistan",
+        "Pakistan",
+        "Palaos",
+        "Panama",
+        "Papouasie-Nouvelle-Guinée",
+        "Paraguay",
+        "Pays-Bas",
+        "Pérou",
+        "Philippines",
+        "Pologne",
+        "Portugal",
+        "Qatar",
+        "Roumanie",
+        "Royaume-Uni",
+        "Russie",
+        "Rwanda",
+        "Saint-Christophe-et-Niévès",
+        "Sainte-Lucie",
+        "Saint-Marin",
+        "Saint-Vincent-et-les-Grenadines",
+        "Salomon",
+        "Salvador",
+        "Samoa",
+        "Sao Tomé-et-Principe",
+        "Sénégal",
+        "Serbie",
+        "Seychelles",
+        "Sierra Leone",
+        "Singapour",
+        "Slovaquie",
+        "Slovénie",
+        "Somalie",
+        "Soudan",
+        "Soudan du Sud",
+        "Sri Lanka",
+        "Suède",
+        "Suisse",
+        "Suriname",
+        "Syrie",
+        "Tadjikistan",
+        "Tanzanie",
+        "Tchad",
+        "Tchéquie",
+        "Thaïlande",
+        "Timor oriental",
+        "Togo",
+        "Tonga",
+        "Trinité-et-Tobago",
+        "Tunisie",
+        "Turkménistan",
+        "Turquie",
+        "Tuvalu",
+        "Ukraine",
+        "Uruguay",
+        "Vanuatu",
+        "Vatican",
+        "Vénézuéla",
+        "Vietnam",
+        "Yémen",
+        "Zambie",
+        "Zimbabwé"
+    };
+}
