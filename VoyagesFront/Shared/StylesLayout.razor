@@ -1,0 +1,23 @@
+﻿@inherits LayoutComponentBase
+
+@layout MainLayout
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <NavLink class="nav-link" href="/styles" Match="NavLinkMatch.All">Guide</NavLink>
+        </li>
+        <li class="nav-item">
+            <NavLink class="nav-link" href="/styles/nature">Nature</NavLink>
+        </li>
+        <li class="nav-item">
+            <NavLink class="nav-link" href="/styles/visite">Visite</NavLink>
+        </li>
+    </ul>
+
+    @Body
+</div>
+
+@code {
+
+}
