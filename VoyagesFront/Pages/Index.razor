@@ -3,11 +3,12 @@
 @inject IDataContext data
 @inject IConfiguration conf
 @inject IJSRuntime js
+@inject IStringLocalizer<Index> loc
 
 <div class="jumbotron" style="background-image: url('@conf["Const:ImageJumbo"]')">
     <div class="container">
-        <h1 class="display-3">Voyagez @((MarkupString)PaysCourant) !</h1>
-        <p>Envie d'évasion ? faites vos bagages, nous partons...</p>
+        <h1 class="display-3">@loc["JumboTitle"]</h1>
+        <p>@loc["JumboSubtitle"]</p>
     </div>
 </div>
 

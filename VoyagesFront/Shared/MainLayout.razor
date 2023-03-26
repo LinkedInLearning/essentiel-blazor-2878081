@@ -1,5 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
+@using System.Globalization
 @using Microsoft.AspNetCore.WebUtilities
 
 @inject NavigationManager nav
@@ -26,7 +27,18 @@
 
         if (QueryHelpers.ParseQuery(new Uri(nav.Uri).Query).TryGetValue("lang", out var paramLang))
         {
-            // TODO : Définit la culture avec paramLang
+            CultureInfo culture;
+
+            try
+            {
+                culture = new CultureInfo(paramLang);
+            }
+            catch (CultureNotFoundException e)
+            {
+                culture = new CultureInfo("en");
+            }
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
         }
     }
 }

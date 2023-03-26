@@ -2,8 +2,10 @@
 
 @using System.Text
 
+@inject IStringLocalizer<Vous> loc
+
 <div class="container">
-    <h3>Votre séjour</h3>
+    <h3>@loc["Title"]</h3>
 
     <div class="mb-3">
         <label for="nom">Prénom Nom</label>
