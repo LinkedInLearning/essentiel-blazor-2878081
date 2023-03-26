@@ -14,6 +14,7 @@ namespace VoyagesFront
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
+            builder.Services.AddSingleton<IDataContext>(s => new DataContext());
 
             await builder.Build().RunAsync();
         }
