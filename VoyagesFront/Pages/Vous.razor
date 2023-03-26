@@ -1,0 +1,25 @@
+﻿@page "/vous"
+
+<div class="container">
+    <h3>Votre séjour</h3>
+
+    <div class="mb-3">
+        <label for="nom">Prénom Nom</label>
+        <input id="nom" placeholder="Votre prénom et votre nom">
+    </div>
+    <div class="mb-3">
+        <label for="passagers">Nombre de passagers</label>
+        <input id="passagers" placeholder="Combien serez-vous ?">
+    </div>
+    <div class="mb-3">
+        <label for="depart">Du</label>
+        <input id="depart" type="date" placeholder="Quand voulez-vous partir ?">
+        <label for="retour">au</label>
+        <input id="retour" type="date" placeholder="Quand voulez-vous revenir ?">
+    </div>
+    <p>Bienvenue, nous vous attendons.</p>
+</div>
+
+@code {
+    private Séjour séjour = new Séjour(DateTime.Now.Date + TimeSpan.FromDays(7));
+}
