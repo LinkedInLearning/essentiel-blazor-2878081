@@ -1,8 +1,7 @@
 ﻿@inherits LayoutComponentBase
 
-@using Microsoft.Extensions.Configuration
-
 @inject IConfiguration conf
+@inject ILoggerFactory logFactory
 
 <CascadingValue Value="styles">
     <NavMenu />
@@ -13,8 +12,13 @@
 @code {
     public string[] styles = { "???" };
 
+    private ILogger log;
+
     protected override void OnInitialized()
     {
+        log = logFactory.CreateLogger<MainLayout>();
         styles = conf.GetValue<string>("Const:Styles")?.Split(',') ?? styles;
+
+        log.LogInformation("Initialisation");
     }
 }
