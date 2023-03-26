@@ -2,6 +2,7 @@
 
 @inject IDataContext data
 @inject IConfiguration conf
+@inject IJSRuntime js
 
 <div class="jumbotron" style="background-image: url('@conf["Const:ImageJumbo"]')">
     <div class="container">
@@ -46,7 +47,8 @@
     private async void ModalDétail(Voyage v)
     {
         Courant = v;
-        // TODO : Le code javascript $('#detail').modal("show")
+        //  appelJQuery("#detail", "modal", "show") <=>  $('#detail').modal("show")
+        await js.InvokeVoidAsync("appelJQuery", new object[] { "#detail", "modal", "show" });
     }
 
     private string PaysCourant { get; set; } = "";
