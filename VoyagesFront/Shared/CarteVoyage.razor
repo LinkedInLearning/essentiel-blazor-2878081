@@ -18,4 +18,6 @@
 
     [Parameter]
     public Action<Voyage> Survol { get; set; }
+
+    protected override bool ShouldRender() => false;
 }

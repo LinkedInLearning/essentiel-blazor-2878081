@@ -58,29 +58,6 @@
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
 
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
-    }
-
-.jumbotron {
-    background-position: top left;
-    background-size: cover;
-    padding: 4rem 2rem;
-}
-jumbotron p {
-    color: black
-}
-
-.validation-errors {
-    color: #721c24;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    position: relative;
-    padding: .75rem 1.25rem;
-    margin-bottom: 1rem;
-    border-radius: .25rem;
-}
-
-.validation-errors li {
-    list-style-type: none;
+.loading-progress-text:after {
+    content: var(--blazor-load-percentage-text, "Loading");
 }
