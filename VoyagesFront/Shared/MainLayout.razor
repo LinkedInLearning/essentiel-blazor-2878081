@@ -1,5 +1,8 @@
 ﻿@inherits LayoutComponentBase
 
+@using Microsoft.AspNetCore.WebUtilities
+
+@inject NavigationManager nav
 @inject IConfiguration conf
 @inject ILoggerFactory logFactory
 
@@ -20,5 +23,10 @@
         styles = conf.GetValue<string>("Const:Styles")?.Split(',') ?? styles;
 
         log.LogInformation("Initialisation");
+
+        if (QueryHelpers.ParseQuery(new Uri(nav.Uri).Query).TryGetValue("lang", out var paramLang))
+        {
+            // TODO : Définit la culture avec paramLang
+        }
     }
 }
