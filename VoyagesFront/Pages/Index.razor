@@ -12,19 +12,9 @@
 <div class="row">
     @for (var i = 0; i < voyages.Length; i++)
     {
-        var v = voyages[i];
         var indice = i;
 
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-            <div class="card m-1" @onmouseover="e => ChangerDePays(v.Pays, indice)" @onmouseout='e => ChangerDePays("", indice)'>
-                <img src="/img/@v.Image" class="card-img-top" alt="@v.Titre">
-                <div class="card-body">
-                    <h5 class="card-title">@v.Titre</h5>
-                    <p class="card-text">@v.Description</p>
-                    <a href="/styles/@v.Style/@v.Id" class="card-link">Plus d'info...</a>
-                </div>
-            </div>
-        </div>
+        <CarteVoyage Voyage='voyages[i]' Survol='v => ChangerDePays(v != null ? v.Pays : "", indice)' />
     }
 </div>
 @code {
@@ -46,5 +36,6 @@
     private void ChangerDePays(string pays, int indice = -1)
     {
         PaysCourant = pays.Length == 0 ? "" : $"{pays} <small class='text-muted'>{indice}</small>";
+        StateHasChanged();
     }
 }
