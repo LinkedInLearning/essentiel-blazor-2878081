@@ -1,6 +1,6 @@
 {
-  "name": "Tmp",
-  "short_name": "Tmp",
+  "name": "Voyages Front",
+  "short_name": "Voyages",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",

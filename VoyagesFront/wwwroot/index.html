@@ -11,10 +11,13 @@
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="VoyagesFront.styles.css" rel="stylesheet" />
     <link href="_content/Blazored.Typeahead/blazored-typeahead.css" rel="stylesheet" />
+    <link href="manifest.json" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
     <script>
         // Bootstrap 4 Modal compatibility
         Node.prototype.on = Node.prototype.addEventListener
-        Node.prototype.modal = function (action) { 
+        Node.prototype.modal = function (action) {
             let modal = bootstrap.Modal.getOrCreateInstance(this);
             modal[action]();
         }
@@ -46,6 +49,7 @@
         function evnmtJQuery(sel, evnmt, dotnetObj, dotnetMeth) {
             $(sel).on(evnmt, e => dotnetObj.invokeMethodAsync(dotnetMeth));
         }
+        navigator.serviceWorker.register('service-worker.js');
     </script>
 </body>
 
