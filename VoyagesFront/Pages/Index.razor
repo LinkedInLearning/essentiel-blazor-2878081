@@ -1,5 +1,10 @@
 ﻿@page "/"
-<div class="jumbotron">
+
+@using Microsoft.Extensions.Configuration
+
+@inject IConfiguration conf
+
+<div class="jumbotron" style="background-image: url('@conf["Const:ImageJumbo"]')">
     <div class="container">
         <h1 class="display-3">Voyagez @((MarkupString)PaysCourant) !</h1>
         <p>Envie d'évasion ? faites vos bagages, nous partons...</p>

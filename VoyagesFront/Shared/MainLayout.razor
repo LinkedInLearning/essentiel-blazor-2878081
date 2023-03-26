@@ -1,5 +1,9 @@
 ﻿@inherits LayoutComponentBase
 
+@using Microsoft.Extensions.Configuration
+
+@inject IConfiguration conf
+
 <CascadingValue Value="styles">
     <NavMenu />
 
@@ -7,5 +11,10 @@
 </CascadingValue>
 
 @code {
-    public string[] styles = { "Visite", "Nature" };
+    public string[] styles = { "???" };
+
+    protected override void OnInitialized()
+    {
+        styles = conf.GetValue<string>("Const:Styles")?.Split(',') ?? styles;
+    }
 }

@@ -63,7 +63,6 @@
     }
 
 .jumbotron {
-    background-image: url("/img/home.jpg");
     background-position: top left;
     background-size: cover;
     padding: 4rem 2rem;
