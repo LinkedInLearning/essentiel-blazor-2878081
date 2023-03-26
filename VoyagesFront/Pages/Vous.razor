@@ -9,10 +9,7 @@
         <label for="nom">Prénom Nom</label>
         <input id="nom" placeholder="Votre prénom et votre nom" @bind="séjour.Nom" @bind:event="oninput">
     </div>
-    <div class="mb-3">
-        <label for="passagers">Nombre de passagers</label>
-        <input id="passagers" placeholder="Combien serez-vous ?" @bind="séjour.NbPassagers" @bind:event="oninput">
-    </div>
+    <Passagers @bind-Nombre="séjour.NbPassagers"></Passagers>
     <div class="mb-3">
         <label for="depart">Du</label>
         <input id="depart" type="date" placeholder="Quand voulez-vous partir ?" @bind="séjour.Départ">

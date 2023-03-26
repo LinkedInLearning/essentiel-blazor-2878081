@@ -1,0 +1,23 @@
+﻿<div class="mb-3">
+    <label for="passagers">Nombre de passagers</label>
+    <input id="passagers" placeholder="Combien serez-vous ?" @bind="NbPassagers" @bind:event="oninput">
+</div>
+@code {
+    private uint NbPassagers
+    {
+        get => Nombre;
+        set
+        {
+            Nombre = value;
+            NombreChanged.InvokeAsync(value);
+        }
+    }
+
+    [Parameter]
+    public uint Nombre
+    {
+        get; set;
+    }
+    [Parameter]
+    public EventCallback<uint> NombreChanged { get; set; }
+}
