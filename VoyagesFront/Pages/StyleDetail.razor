@@ -1,0 +1,17 @@
+﻿@page "/styles/{Style}"
+@page "/styles/{Style}/{Id}"
+
+@layout StylesLayout
+
+<h3>@AvecMajuscule(Id ?? Style)</h3>
+
+@code {
+    [Parameter]
+    public string Style { get; set; }
+
+    [Parameter]
+    public string Id { get; set; }
+
+    private static string AvecMajuscule(string s) => $"{s.Substring(0, 1).ToUpper()}{s.Substring(1)}";
+
+}

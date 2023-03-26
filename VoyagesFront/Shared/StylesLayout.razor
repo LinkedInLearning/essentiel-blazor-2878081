@@ -7,17 +7,18 @@
         <li class="nav-item">
             <NavLink class="nav-link" href="/styles" Match="NavLinkMatch.All">Guide</NavLink>
         </li>
-        <li class="nav-item">
-            <NavLink class="nav-link" href="/styles/nature">Nature</NavLink>
-        </li>
-        <li class="nav-item">
-            <NavLink class="nav-link" href="/styles/visite">Visite</NavLink>
-        </li>
+        @foreach (var style in listeDesStyles)
+        {
+            <li class="nav-item">
+                <NavLink class="nav-link" href='@($"/styles/{style.ToLower()}")'>@style</NavLink>
+            </li>
+        }
     </ul>
 
     @Body
 </div>
 
 @code {
-
+    [CascadingParameter]
+    public string[] listeDesStyles { get; set; }
 }
