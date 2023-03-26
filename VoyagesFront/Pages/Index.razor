@@ -1,16 +1,19 @@
 ﻿@page "/"
 <div class="jumbotron">
     <div class="container">
-        <h1 class="display-3">Voyagez !</h1>
+        <h1 class="display-3">Voyagez @((MarkupString)PaysCourant) !</h1>
         <p>Envie d'évasion ? faites vos bagages, nous partons...</p>
     </div>
 </div>
 
 <div class="row">
-    @foreach (var v in voyages)
+    @for (var i = 0; i < voyages.Length; i++)
     {
+        var v = voyages[i];
+        var indice = i;
+
         <div class="col-sm-6 col-lg-4 col-xl-3">
-            <div class="card m-1">
+            <div class="card m-1" @onmouseover="e => ChangerDePays(v.Pays, indice)" @onmouseout='e => ChangerDePays("", indice)'>
                 <img src="/img/@v.Image" class="card-img-top" alt="@v.Titre">
                 <div class="card-body">
                     <h5 class="card-title">@v.Titre</h5>
