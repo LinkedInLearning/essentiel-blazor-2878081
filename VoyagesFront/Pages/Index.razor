@@ -51,13 +51,22 @@
         await js.InvokeVoidAsync("appelJQuery", new object[] { "#detail", "modal", "show" });
     }
 
+    [JSInvokable]
     public void RazCourant()
     {
         Courant = null;
     }
 
-    // TODO : $("#detail").on("hidden.bs.modal", e => this.RazCourant())
-    //  <=> evnmtJQuery("#detail", "hidden.bs.modal", this, "RazCourant")
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var thisPourJs = DotNetObjectReference.Create(this);
+
+            // TODO : $("#detail").on("hidden.bs.modal", e => this.RazCourant()) <=> evnmtJQuery("#detail", "hidden.bs.modal", this, "RazCourant")
+            await js.InvokeVoidAsync("evnmtJQuery", new object[] { "#detail", "hidden.bs.modal", thisPourJs, "RazCourant" });
+        }
+    }
 
     private string PaysCourant { get; set; } = "";
 
