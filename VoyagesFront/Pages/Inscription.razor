@@ -3,12 +3,13 @@
 <div class="container">
     <h3>Inscription</h3>
 
-    <EditForm Model="utilisateur">
+    <EditForm EditContext="editContext">
         <DataAnnotationsValidator />
         <ValidationSummary />
         <div class="form-group">
             <label for="Nom">Nom</label>
             <InputText id="Nom" class="form-control" @bind-Value="@utilisateur.Nom" />
+            <ValidationMessage For="() => utilisateur.Nom"/>
         </div>
         <div class="form-group">
             <label for="Prénom">Prénom</label>
@@ -30,6 +31,7 @@
         <div class="form-group">
             <label for="Login">Login</label>
             <InputText id="Login" class="form-control" @bind-Value="@utilisateur.Login" />
+            <div class="invalid-feedback">@String.Join(", ", editContext.GetValidationMessages(()=>utilisateur.Login).ToArray())</div>
         </div>
         <div class="form-group">
             <label for="MotDePasse">Mot de passe</label>
@@ -55,6 +57,22 @@
         ConfirmationMotDePasse = "", 
         Email = ""
     };
+
+    private EditContext editContext = null!;
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(utilisateur);
+        editContext.SetFieldCssClassProvider(new BootstrapFieldCssClassProvider());
+    }
+
+    private class BootstrapFieldCssClassProvider : FieldCssClassProvider
+    {
+        public override string GetFieldCssClass(EditContext editContext, in FieldIdentifier fieldIdentifier)
+            => !editContext.IsModified(fieldIdentifier)
+                ? ""
+                : editContext.GetValidationMessages(fieldIdentifier).Any() ? "is-invalid" : "is-valid";
+    }
 
     private readonly string[] Pays = {
         "Afghanistan",
