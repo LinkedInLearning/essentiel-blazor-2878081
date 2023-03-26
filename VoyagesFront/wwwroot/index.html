@@ -11,6 +11,15 @@
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="VoyagesFront.styles.css" rel="stylesheet" />
     <link href="_content/Blazored.Typeahead/blazored-typeahead.css" rel="stylesheet" />
+    <script>
+        // Bootstrap 4 Modal compatibility
+        Node.prototype.on = Node.prototype.addEventListener
+        Node.prototype.modal = function (action) { 
+            let modal = bootstrap.Modal.getOrCreateInstance(this);
+            modal[action]();
+        }
+        var $ = sel => document.querySelector(sel)
+    </script>
 </head>
 
 <body>

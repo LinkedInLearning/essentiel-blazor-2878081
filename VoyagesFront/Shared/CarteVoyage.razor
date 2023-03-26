@@ -1,5 +1,5 @@
 ﻿<div class="col-sm-6 col-lg-4 col-xl-3">
-    <div class="card m-1" @onmouseover="e => Survol(Voyage)" @onmouseout='e => Survol(null)'>
+    <div class="card m-1" @onmouseover="e => Survol(Voyage)" @onmouseout='e => Survol(null)' @onclick="e => Clic(Voyage)">
         <img src="/img/@Voyage.Image" class="card-img-top" alt="@Voyage.Titre">
         <div class="card-body">
             <h5 class="card-title">@Voyage.Titre</h5>
@@ -18,6 +18,9 @@
 
     [Parameter]
     public Action<Voyage> Survol { get; set; }
+
+    [Parameter]
+    public Action<Voyage> Clic { get; set; }
 
     protected override bool ShouldRender() => false;
 }
