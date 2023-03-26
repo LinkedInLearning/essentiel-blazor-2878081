@@ -43,6 +43,9 @@
         function appelJQuery(sel, meth, ...args) {
             $(sel)[meth](args);
         }
+        function evnmtJQuery(sel, evnmt, dotnetObj, dotnetMeth) {
+            $(sel).on(evnmt, e => dotnetObj.invokeMethodAsync(dotnetMeth));
+        }
     </script>
 </body>
 

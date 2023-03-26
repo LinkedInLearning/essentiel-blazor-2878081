@@ -51,6 +51,14 @@
         await js.InvokeVoidAsync("appelJQuery", new object[] { "#detail", "modal", "show" });
     }
 
+    public void RazCourant()
+    {
+        Courant = null;
+    }
+
+    // TODO : $("#detail").on("hidden.bs.modal", e => this.RazCourant())
+    //  <=> evnmtJQuery("#detail", "hidden.bs.modal", this, "RazCourant")
+
     private string PaysCourant { get; set; } = "";
 
     private void ChangerDePays(string pays, int indice = -1)
