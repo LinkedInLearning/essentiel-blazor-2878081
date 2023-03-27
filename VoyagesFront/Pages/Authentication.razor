@@ -3,7 +3,23 @@
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 
 <div class="container">
-    <RemoteAuthenticatorView Action="@Action" />
+    <RemoteAuthenticatorView Action="@Action">
+        <CompletingLoggingIn>
+            <p>Connexion en cours...</p>
+        </CompletingLoggingIn>
+        <LogInFailed>
+            <p>La connexion a échoué</p>
+        </LogInFailed>
+        <CompletingLogOut>
+            <p>Déconnexion en cours...</p>
+        </CompletingLogOut>
+        <LogOutSucceeded>
+            <p>Vous êtes déconnecté-e</p>
+        </LogOutSucceeded>
+        <LogOutFailed>
+            <p>La déconnexion a échoué</p>
+        </LogOutFailed>
+    </RemoteAuthenticatorView>
     <a href="/">Revenir à l'accueil</a>
 </div>
 @code {

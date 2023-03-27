@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Voyages;
 
 namespace VoyagesBack.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class SejoursController : ControllerBase
