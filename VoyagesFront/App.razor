@@ -1,9 +1,22 @@
 ﻿@using Microsoft.AspNetCore.Components.Authorization
 
+@inject NavigationManager nav
+
 <CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
-            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                <NotAuthorized>
+                    @if (!context.User.Identity.IsAuthenticated)
+                    {
+                        nav.NavigateTo($"/authentication/login?returnUrl={Uri.EscapeDataString(nav.Uri)}");
+                    }
+                    else
+                    {
+                        <p>Vous n'êtes pas autorisé-e à accéder à cette ressource.</p>
+                    }
+                </NotAuthorized>
+            </AuthorizeRouteView>
             <FocusOnNavigate RouteData="@routeData" Selector="h1" />
         </Found>
         <NotFound>

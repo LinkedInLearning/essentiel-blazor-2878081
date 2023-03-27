@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoyagesFront", "VoyagesFron
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoyagesBack", "VoyagesBack\VoyagesBack.csproj", "{47A7C440-1976-42C8-8C58-AEB80FBA42A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voyages", "Voyages\Voyages.csproj", "{A360A3BF-0C53-4736-A513-D168A1CED7BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Voyages", "Voyages\Voyages.csproj", "{A360A3BF-0C53-4736-A513-D168A1CED7BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

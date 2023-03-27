@@ -12,6 +12,7 @@ namespace VoyagesFront
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
+            builder.Services.AddApiAuthorization();
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
             builder.Services.AddSingleton<IDataContext>(s => new DataContext());

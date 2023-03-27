@@ -1,5 +1,8 @@
 ﻿@using Blazored.Typeahead
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 
+@inject SignOutSessionStateManager signout
 @inject NavigationManager nav
 @inject IDataContext data
 
@@ -28,8 +31,17 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" aria-label="Mon compte"><span class="oi oi-person"></span></a>
                     <div class="dropdown-menu dropdown-menu-end">
-                        <NavLink class="dropdown-item" href="/compte/inscription">Inscription</NavLink>
-                        <NavLink class="dropdown-item" href="/compte/connexion">Connexion</NavLink>
+                        <AuthorizeView>
+                            <Authorized>
+                                <NavLink class="dropdown-item" href="/authentication/profile">Mon compte</NavLink>
+                                <div class="dropdown-divider"></div>
+                                <â class="dropdown-item" href="#" @onclick="e => Déconnecter()">Déconnexion</â>
+                            </Authorized>
+                            <NotAuthorized>
+                                <NavLink class="dropdown-item" href="/authentication/register">Inscription</NavLink>
+                                <NavLink class="dropdown-item" href="/authentication/login">Connexion</NavLink>
+                            </NotAuthorized>
+                        </AuthorizeView>
                     </div>
                 </li>
             </ul>
@@ -38,6 +50,11 @@
 </nav>
 
 @code {
+    private async Task Déconnecter()
+    {
+        await signout.SetSignOutState();
+        nav.NavigateTo("/authentication/logout");
+    }
     private Voyage? Sélection
     {
         get => null;
