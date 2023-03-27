@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using VoyagesFront;
+using Voyages;
 
 namespace VoyagesFront
 {

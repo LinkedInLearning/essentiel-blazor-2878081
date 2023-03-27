@@ -1,4 +1,4 @@
-﻿namespace VoyagesFront
+﻿namespace Voyages
 {
     public interface IDataContext
     {

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VoyagesFront\VoyagesFront.csproj" />
+    <ProjectReference Include="..\Voyages\Voyages.csproj" />
   </ItemGroup>
 
 </Project>
