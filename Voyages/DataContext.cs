@@ -2,7 +2,7 @@
 {
     public class DataContext : IDataContext
     {
-        public IEnumerable<Voyage> Voyages => new Voyage[] {
+         public static readonly Voyage[] DonnéesDeTest = new Voyage[] {
             new Voyage( "bandung"   , "bandung.jpg"     , "nature", "Se ressourcer en Indonésie"  , "en Indonésie"   , "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elit lacus, faucibus a massa a, ultrices tempor magna."                     ),
             new Voyage( "santorini" , "santorini.jpg"   , "visite", "Les ruelles de Santorin"     , "en Grèce"       , "Curabitur feugiat at lectus sit amet tincidunt. Curabitur at eros nec turpis commodo luctus."                                                ),
             new Voyage( "derbyshire", "derbyshire.jpg"  , "nature", "Les lands du Derbyshire"     , "en Angleterre"  , "Phasellus mattis pretium sem, et gravida diam semper et. Duis pretium magna quis ornare pulvinar."                                           ),
@@ -14,5 +14,24 @@
             new Voyage( "taipei"    , "taipei.jpg"      , "visite", "Les couleurs de Taipei"      , "à Taïwan"       , "Suspendisse dictum lobortis libero sit amet pulvinar. Mauris et congue ex, sed interdum nisl. Aenean ultrices turpis ac congue condimentum." ),
             new Voyage( "jusang"    , "jusang.jpg"      , "nature", "Automne en Corée"            , "en Corée"       , "Cras maximus sit amet nunc at tristique. Sed vitae tellus turpis. Curabitur quis magna dictum, posuere mi a, ornare dui."                    )
         };
+        
+        public IEnumerable<Voyage> Voyages { get; set; } = new Voyage[0];
+
+        private Dictionary<Guid, Dictionary<Guid, Séjour>> séjours = new Dictionary<Guid, Dictionary<Guid, Séjour>>();
+
+        public IReadOnlyDictionary<Guid, Séjour>? GetSéjours(Guid uid)
+            => séjours.ContainsKey(uid) ? séjours[uid] : null;
+
+        public Guid AjouterSéjour(Guid uid, Séjour séjour)
+        {
+            if (!séjours.ContainsKey(uid))
+            {
+                séjours.Add(uid, new Dictionary<Guid, Séjour>());
+            }
+            var guid = Guid.NewGuid();
+
+            séjours[uid].Add(guid, séjour);
+            return guid;
+        }
     }
 }
