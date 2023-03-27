@@ -3,6 +3,8 @@
 @using System.Text
 
 @inject IStringLocalizer<Vous> loc
+@inject HttpClient http
+
 
 <div class="container">
     <h3>@loc["Title"]</h3>
@@ -40,8 +42,8 @@
 
     private async void ValidationSéjour()
     {
-        // TODO
-        if (true)
+        var reponse = await http.PostAsJsonAsync<SejourDto>($"api/sejours/{uid}", new SejourDto(séjour));
+        if (reponse.IsSuccessStatusCode)
         {
             messageType = "success";
             messageText = "Séjour enregistré";
@@ -49,7 +51,7 @@
         else
         {
             messageType = "danger";
-            messageText = "Oups";
+            messageText = reponse.ReasonPhrase;
         }
         StateHasChanged();
     }
