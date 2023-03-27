@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoyagesFront", "VoyagesFront\VoyagesFront.csproj", "{7D403C17-3941-431F-AB46-98CC9215A364}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoyagesBack", "VoyagesBack\VoyagesBack.csproj", "{47A7C440-1976-42C8-8C58-AEB80FBA42A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7D403C17-3941-431F-AB46-98CC9215A364}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D403C17-3941-431F-AB46-98CC9215A364}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D403C17-3941-431F-AB46-98CC9215A364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47A7C440-1976-42C8-8C58-AEB80FBA42A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47A7C440-1976-42C8-8C58-AEB80FBA42A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47A7C440-1976-42C8-8C58-AEB80FBA42A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47A7C440-1976-42C8-8C58-AEB80FBA42A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
