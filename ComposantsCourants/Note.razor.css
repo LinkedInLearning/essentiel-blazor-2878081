@@ -1,0 +1,12 @@
+﻿.bg {
+    background-image: url('bg.png');
+    background-repeat: repeat-y;
+    background-position: left;
+}
+
+.fg {
+    background-image: url('star.png');
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    height: 100%;
+}

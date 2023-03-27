@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoyagesBack", "VoyagesBack\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Voyages", "Voyages\Voyages.csproj", "{A360A3BF-0C53-4736-A513-D168A1CED7BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComposantsCourants", "ComposantsCourants\ComposantsCourants.csproj", "{76ACB938-5722-4EEC-B9E2-3628E908BCE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A360A3BF-0C53-4736-A513-D168A1CED7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A360A3BF-0C53-4736-A513-D168A1CED7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A360A3BF-0C53-4736-A513-D168A1CED7BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76ACB938-5722-4EEC-B9E2-3628E908BCE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76ACB938-5722-4EEC-B9E2-3628E908BCE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76ACB938-5722-4EEC-B9E2-3628E908BCE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76ACB938-5722-4EEC-B9E2-3628E908BCE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

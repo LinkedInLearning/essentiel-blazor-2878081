@@ -1,0 +1,24 @@
+﻿<div class="bg" style="background-size: @ValeurUnite; width: @LargeurUnite; height:@HauteurUnite">
+    <div class="fg"></div>
+</div>
+
+@code {
+    [Parameter]
+    public int NbEtoiles { get; set; } = 5;
+
+    [Parameter]
+    public int Hauteur { get; set; } = 15;
+
+    [Parameter]
+    public string Unite { get; set; } = "px";
+
+    [Parameter]
+    public double Valeur { get; set; } = 2.5;
+
+    private string ValeurUnite => $"{(int)(Valeur * (double)Largeur / (double)NbEtoiles)}{Unite}";
+
+    public int Largeur => Hauteur * NbEtoiles;
+
+    public string LargeurUnite => $"{Largeur}{Unite}";
+    public string HauteurUnite => $"{Hauteur}{Unite}";
+}

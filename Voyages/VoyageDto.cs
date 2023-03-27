@@ -12,10 +12,11 @@ namespace Voyages
             Style = v.Style;
             Titre = v.Titre;
             Pays = v.Pays;
+            Note = v.Note;
             Description = v.Description;
         }
 
-        public Voyage GetVoyage() => new Voyage(Id, Image, Style, Titre, Pays, Description);
+        public Voyage GetVoyage() => new Voyage(Id, Image, Style, Titre, Pays, Note, Description);
 
         public static IEnumerable<VoyageDto> GetVoyageDtos(IEnumerable<Voyage> voyages) =>
             voyages.Select(v => new VoyageDto(v));
@@ -29,6 +30,7 @@ namespace Voyages
         public string Style { get; set; }
         public string Titre { get; set; }
         public string Pays { get; set; }
+        public double Note { get; set; }
         public string Description { get; set; }
     }
 }
