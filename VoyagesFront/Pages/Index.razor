@@ -4,6 +4,7 @@
 @inject IConfiguration conf
 @inject IJSRuntime js
 @inject IStringLocalizer<Index> loc
+@inject HttpClient http
 
 <div class="jumbotron" style="background-image: url('@conf["Const:ImageJumbo"]')">
     <div class="container">
@@ -43,6 +44,13 @@
 </div>
 
 @code {
+    protected override async Task OnInitializedAsync()
+    {
+        var dtos = await http.GetFromJsonAsync<VoyageDto[]>("api/Voyages");
+
+        data.Voyages = VoyageDto.GetVoyages(await http.GetFromJsonAsync<VoyageDto[]>("api/Voyages"));
+    }
+
     private Voyage? Courant { get; set; }
 
     private async void ModalDétail(Voyage v)
