@@ -7,21 +7,25 @@
 @inject IConfiguration conf
 @inject ILoggerFactory logFactory
 
-<CascadingValue Value="styles">
-    <NavMenu />
+<CascadingValue Value="uid">
+    <CascadingValue Value="styles">
+        <NavMenu />
 
-    @Body
+        @Body
+    </CascadingValue>
 </CascadingValue>
 
 @code {
     public string[] styles = { "???" };
 
     private ILogger log;
+    private Guid uid;
 
     protected override void OnInitialized()
     {
         log = logFactory.CreateLogger<MainLayout>();
         styles = conf.GetValue<string>("Const:Styles")?.Split(',') ?? styles;
+        uid = Guid.NewGuid();
 
         log.LogInformation("Initialisation");
 
