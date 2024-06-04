@@ -1,0 +1,42 @@
+﻿<Window x:Class="ExempleWebViewWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:blazor="http://schemas.microsoft.com/winfx/2006/xaml/presentation/blazor"
+        xmlns:local="clr-namespace:ExempleWebViewWpf"
+        xmlns:comp="clr-namespace:ExempleWebViewWpf.Components"
+        mc:Ignorable="d"
+        Title="Testeur de batterie (WPF)" Height="539" Width="597">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="1" ResizeDirection="Columns" VerticalAlignment="Stretch" ShowsPreview="True"  HorizontalAlignment="Left" Width="5"/>
+        <blazor:BlazorWebView Grid.Column="1" HostPage="wwwroot/index.html" Name="blazorWebView">
+            <blazor:BlazorWebView.RootComponents>
+                <blazor:RootComponent Selector="#app" ComponentType="{x:Type comp:Routes}"/>
+            </blazor:BlazorWebView.RootComponents>
+        </blazor:BlazorWebView>
+        <StackPanel>
+            <TextBlock Margin="10px 5px"  Text='{Binding Charge, StringFormat="Charge : {0}%"}'>Charge : </TextBlock>
+            <Slider Value="{Binding Charge}" Margin="10px 5px" Minimum="0" Maximum="100" SmallChange="2" LargeChange="10"/>
+            <CheckBox IsChecked="{Binding EnCharge}" Margin="10px 5px"  Content="En charge"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <Label HorizontalAlignment="Center">Seuil de danger</Label>
+                    <TextBox Margin="10px 5px" Text="{Binding SeuilDanger}"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Label HorizontalAlignment="Center">Seuil d'alerte</Label>
+                    <TextBox Margin="10px 5px"  Text="{Binding SeuilAlerte}"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

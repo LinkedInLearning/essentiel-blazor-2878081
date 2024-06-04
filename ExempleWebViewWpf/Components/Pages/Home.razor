@@ -1,0 +1,39 @@
+﻿@page "/"
+@inject InfosBatterie infos
+
+<h1>@Pourcentage%</h1>
+@if (EnCharge)
+{
+    <h2>⚡</h2>
+}
+<div id="haut"></div>
+<div id="plus"></div>
+<div id="charge" class="@Niveau">
+    <div id="manque" style="height: @Manque%"></div>
+</div>
+@code {
+    protected override void OnInitialized()
+    {
+        infos.PropertyChanged += (o, e) => StateHasChanged();
+    }
+
+    private Boolean EnCharge => infos.EnCharge;
+
+    private int Pourcentage =>
+        infos.Charge;
+
+    private int Manque => 100 - Pourcentage;
+
+    private string Niveau
+    {
+        get
+        {
+            if (Pourcentage > infos.SeuilAlerte)
+                return "niv2";
+            else if (Pourcentage > infos.SeuilDanger)
+                return "niv1";
+            else
+                return "niv0";
+        }
+    }
+}
