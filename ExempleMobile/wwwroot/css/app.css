@@ -1,39 +1,73 @@
 ﻿html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
-a, .btn-link {
-    color: #006bb7;
+html, body {
+    height: 100%;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+body, #manque {
+    background-color: rgb(214, 230, 240);
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+#haut {
+    height: calc(15vh);
+    margin: 0;
 }
 
-.content {
-    padding-top: 1.1rem;
+#plus, #charge {
+    border: calc(2.5vh) solid #555;
+    border-radius: 15px;
 }
 
-h1:focus {
-    outline: none;
+#plus {
+    margin: 0 auto;
+    width: calc(10vh);
+    height: calc(4vh);
 }
 
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
+#charge {
+    margin: calc(-2.5vh) auto;
+    width: calc(25vh);
+    height: calc(50vh);
 }
 
-.invalid {
-    outline: 1px solid #e50000;
+#manque {
+    width: 100%;
+    height: 95%;
+    margin: auto;
+    margin-top: 0
 }
 
-.validation-message {
-    color: #e50000;
+h1, h2 {
+    position: absolute;
+    margin: 0;
+    display: block;
+    color: #555;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: normal;
+    font-size: calc(9vh);
+    text-align: center;
+    width: 97%;
+}
+
+h1 {
+    top: 46vh;
+}
+
+h2 {
+    top: 32vh;
+}
+
+.niv2 {
+    background-color: lightgreen;
+}
+
+.niv1 {
+    background-color: orange;
+}
+
+.niv0 {
+    background-color: crimson;
 }
 
 #blazor-error-ui {

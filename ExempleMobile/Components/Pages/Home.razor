@@ -1,5 +1,33 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<h1>@Pourcentage%</h1>
+@if (EnCharge)
+{
+    <h2>⚡</h2>
+}
+<div id="haut"></div>
+<div id="plus"></div>
+<div id="charge" class="@Niveau">
+    <div id="manque" style="height: @Manque%"></div>
+</div>
+@code {
+    protected override void OnInitialized()
+    {
+        Battery.Default.BatteryInfoChanged += (o, e) => StateHasChanged();
+        Battery.Default.EnergySaverStatusChanged += (o, e) => StateHasChanged();
+    }
 
-Welcome to your new app.
+    private Boolean EnCharge => Battery.State == BatteryState.Charging;
+
+    private int Pourcentage =>
+        (int)Math.Round(Battery.Default.ChargeLevel * 100.0);
+
+    private int Manque => 100 - Pourcentage;
+
+    private string Niveau => Pourcentage switch
+    {
+        > 60 => "niv2",
+        > 40 => "niv1",
+        _ => "niv0"
+    };
+}
