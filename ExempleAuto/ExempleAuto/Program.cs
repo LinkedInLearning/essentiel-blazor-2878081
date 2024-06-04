@@ -1,3 +1,4 @@
+using ExempleAuto.Client.Models;
 using ExempleAuto.Client.Pages;
 using ExempleAuto.Components;
 
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddSingleton<IDataService, ServerDataService>();
 
 var app = builder.Build();
 
@@ -33,3 +36,9 @@ app.MapRazorComponents<App>()
     .AddAdditionalAssemblies(typeof(ExempleAuto.Client._Imports).Assembly);
 
 app.Run();
+
+class ServerDataService : IDataService
+{
+    public Task<IEnumerable<WeatherForecastDto>> GetAllForecasts()
+        => Task.FromResult(WeatherForecastDto.Generer(5));
+}
