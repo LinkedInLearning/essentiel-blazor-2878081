@@ -4,7 +4,7 @@ Ce dossier Repository est lié au cours `L'essentiel de Blazor`. Le cours entier
 
 ![L'essentiel de Blazor][lil-thumbnail-url] 
 
-Architectes et développeurs d'application C# mais aussi d'autres langages comme java, que vous soyez débutants ou confirmés : Blazor vous donne les compétences "FullStack" sans avoir à adopter une solution Javascript telle que ReactJS ou Angular. Blazor s'appuie sur le standard WebAssembly supporté par tous les navigateurs modernes pour constituer le chaînon manquant à une application Web, monopage ou même progressive entièrement écrite en C#. 
+Architectes et développeurs d'application C# mais aussi d'autres langages comme java, que vous soyez débutants ou confirmés : Blazor vous donne les compétences « FullStack » sans avoir à adopter une solution Javascript telle que ReactJS ou Angular. Blazor s'appuie sur le standard WebAssembly supporté par tous les navigateurs modernes pour constituer le chaînon manquant à une application Web, monopage ou même progressive entièrement écrite en C#. 
 
 ## Instructions
 
