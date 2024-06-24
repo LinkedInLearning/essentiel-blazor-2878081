@@ -33,7 +33,7 @@ Retrouvez mes autres formations sur [LinkedIn Learning][lil-URL-trainer].
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
 [lil-course-url]: https://www.linkedin.com/learning/l-essentiel-de-blazor
-[lil-thumbnail-url]: https://cdn.lynda.com/course/2878081/2878081-1610703217716-16x9.jpg
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/D4E0DAQH9G9RFnfOYBA/learning-public-crop_675_1200/0/1719228718053?e=2147483647&v=beta&t=Z3FrB79M4JsOA7kTwE78Q4Erl3BT72iJ0LL6Dnc0cFQ
 [lil-URL-trainer]: https://www.linkedin.com/learning/instructors/sylvain-labasse
 
 [1]: # (End of FR-Instruction ###############################################################################################)
